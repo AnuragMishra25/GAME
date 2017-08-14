@@ -53,6 +53,13 @@ achievementId is number, of values from anything to anything
 stepsComplete is number, of values from anything to anything
 Exceptions & Errors : if achievementId or stepsComplete is not integer, an error message will be returned
 
+*********************************************************************************************
+
+For checking if achievement is unlocked,checkIfAchievementUnlocked can be called
+Game.checkIfAchievementUnlocked();
+Exceptions & Errors : if achievementId or stepsComplete is not integer, an error message will be returned
+
+
 
                                         FOR API PROVIDER:
 can modify the urls of API, by iterating the code from line 26 to line 37
