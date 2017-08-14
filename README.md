@@ -14,6 +14,8 @@ Make sure, no other module in your application is using Game keyword.
 
                                         FOR GAME CLIENT:
 
+Game.init(integer userId, string env);
+
 Game can be started by using init function
 Game.init(integer userId, string env);
 userId can be any integer, only one user can play at a time.
@@ -21,6 +23,9 @@ env values can be : "dev", "stage", "prod"
 Exceptions & Errors : if userId is not integer, an error message will be returned
 
 ********************************************************************************************
+
+Game.setUserId(number userId);
+
 To set UserId, setUserId function can be used
 Game.setUserId(number userId)
 userId is any number
@@ -28,17 +33,23 @@ Exceptions & Errors : if userId is not integer, an error message will be returne
 
 *********************************************************************************************
 
+Game.getUser();
 
 For fetching score of user at anytime, getScore can be called
-Game.getUser()
+Game.getUser();
 
 *********************************************************************************************
+
+Game.updateUser(integer score);
+
 For updating score of user at anytime, updateScore can be called
 Game.updateUser(integer score);
 score is number, of values from anything to anything
 Exceptions & Errors : if score is not integer, an error message will be returned
 
 *********************************************************************************************
+
+Game.getAchievement(number achievementId);
 
 For fetching achievement of user at anytime, getAchievement can be called
 Game.getAchievement(number achievementId);
@@ -47,6 +58,9 @@ Exceptions & Errors : if achievementId is not integer, an error message will be 
 
 *********************************************************************************************
 
+Game.updateAchievement(number achievementId, number stepsComplete);
+
+
 For updating achievement of user at anytime, updateAchievement can be called
 Game.updateAchievement(number achievementId, number stepsComplete);
 achievementId is number, of values from anything to anything
@@ -54,6 +68,8 @@ stepsComplete is number, of values from anything to anything
 Exceptions & Errors : if achievementId or stepsComplete is not integer, an error message will be returned
 
 *********************************************************************************************
+
+Game.checkIfAchievementUnlocked();
 
 For checking if achievement is unlocked,checkIfAchievementUnlocked can be called
 Game.checkIfAchievementUnlocked();
