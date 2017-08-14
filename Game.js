@@ -21,6 +21,7 @@ var Game = (function(){
     var _achievementId = 0;//currentAchievement of User
     var _currentScore = 0;//Current Score of User
     var _stepsComplete = 0;// Step completed by User till now
+    var _stepsTotal = 0;// Total steps for an achievement
 
     //URL constatns foe the APIS
     var _url={
@@ -168,6 +169,19 @@ var Game = (function(){
     }
 
     /**
+    * Function to check if Achievement unlocked
+    */
+    function checkIfAchievementUnlocked(){
+        if(_stepsTotal < _stepsComplete){
+            return "No achievement Unlocked";
+        }else{
+             var result = getAchievement(_achievementId);
+             _stepsTotal = result.stepsTotal;
+             return "Achievement Unlocked";
+        }
+    }
+
+    /**
     * Function to update achievement to backend
     */
     function updateAchievement(achievementId, stepsComplete){
@@ -182,6 +196,7 @@ var Game = (function(){
                 _achievementId = achievementId;
                 _stepsComplete = stepsComplete
                 result = JSON.parse(result);
+                // checkIfAchievementUnlocked();
                 return result;
             }else{
                 return{code : 803 , error : 'Error Occured! Achievement cannot be updated'}
