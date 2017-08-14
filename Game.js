@@ -118,7 +118,7 @@ var Game = (function(){
                 score : currentScore
             }
             var result = _xmlHttpWrapper( _endPoint + _url.updateScore, _post , params ,false);
-            if(result !== "error"){
+            if(result !== "error" && result != undefined){
                 _currentScore = currentScore;
                 result = JSON.parse(result);
                 return result;
@@ -138,7 +138,7 @@ var Game = (function(){
             userId : _userId
         }
         var result = _xmlHttpWrapper( _endPoint + _url.getScore, _get , params ,false);
-        if(result !== "error"){
+        if(result !== "error" && result != undefined){
             result = JSON.parse(result);
             return result;
         }else{
@@ -156,7 +156,7 @@ var Game = (function(){
                 achievementId : achievementId
             }
             var result = _xmlHttpWrapper( _endPoint + _url.getAchievement, _post , params ,false);
-            if(result !== "error"){
+            if(result !== "error" && result != undefined){
                 _achievementId = achievementId;
                 result = JSON.parse(result);
                 return result;
@@ -172,7 +172,7 @@ var Game = (function(){
     * Function to check if Achievement unlocked
     */
     function checkIfAchievementUnlocked(){
-        if(_stepsTotal < _stepsComplete){
+        if(_stepsTotal <= _stepsComplete){
             return "No achievement Unlocked";
         }else{
              var result = getAchievement(_achievementId);
@@ -192,7 +192,7 @@ var Game = (function(){
                 stepsComplete : stepsComplete
             }
             var result = _xmlHttpWrapper( _endPoint + _url.updateAchievement, _get , params ,false);
-            if(result !== "error"){
+            if(result !== "error" && result != undefined){
                 _achievementId = achievementId;
                 _stepsComplete = stepsComplete
                 result = JSON.parse(result);
@@ -238,6 +238,7 @@ var Game = (function(){
         getAchievement : getAchievement,
         updateAchievement : updateAchievement,
         setUserId : setUserId,
+        checkIfAchievementUnlocked : checkIfAchievementUnlocked,
         init : init
     };
 
